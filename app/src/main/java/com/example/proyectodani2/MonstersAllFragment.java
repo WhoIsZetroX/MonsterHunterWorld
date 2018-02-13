@@ -5,4 +5,16 @@ package com.example.proyectodani2;
  */
 
 public class MonstersAllFragment extends MonsterFragment {
+
+    @Override
+    void rellenarLista() {
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+        monsters.add(new Monster(R.drawable.rathalos));
+    }
 }

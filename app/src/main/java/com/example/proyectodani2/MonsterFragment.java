@@ -28,22 +28,14 @@ public abstract class MonsterFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recycler);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-
+        rellenarLista();
 
         MonstersAdapter adapter = new MonstersAdapter(getActivity(), monsters);
         recyclerView.setAdapter(adapter);
 
-
-
         return view;
     }
+
+    abstract void rellenarLista();
 
 }
