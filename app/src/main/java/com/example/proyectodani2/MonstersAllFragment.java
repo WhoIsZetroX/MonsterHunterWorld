@@ -1,20 +1,11 @@
 package com.example.proyectodani2;
 
-/**
- * Created by dam2a on 30/01/18.
- */
+import com.google.firebase.database.Query;
 
 public class MonstersAllFragment extends MonsterFragment {
 
     @Override
-    void rellenarLista() {
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
+    Query setQuery() {
+        return mReference.child("monsters/all");
     }
 }

@@ -1,10 +1,7 @@
 package com.example.proyectodani2;
 
-import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.Query;
 
 /**
  * Created by dam2a on 30/01/18.
@@ -12,14 +9,8 @@ import android.view.ViewGroup;
 
 public class MonsterFavFragment extends MonsterFragment {
 
-
-
-
-
     @Override
-    void rellenarLista() {
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
-        monsters.add(new Monster(R.drawable.rathalos));
+    Query setQuery() {
+        return mReference.child("monsters/favoritos").child(FirebaseAuth.getInstance().getUid());
     }
 }

@@ -17,6 +17,6 @@ public class MonsterViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         image = itemView.findViewById(R.id.monster_image);
-        //name = itemView.findViewById(R.id.monster_name);
+        name = itemView.findViewById(R.id.monster_name);
     }
 }
