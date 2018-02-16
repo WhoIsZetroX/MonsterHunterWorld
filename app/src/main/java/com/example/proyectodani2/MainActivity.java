@@ -14,7 +14,7 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MonsterFragment.MonsterClickedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,4 +104,9 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public void onMonsterClicked(Monster monster) {
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.flContent, new MonsterInfoPagerFragment()).commit();
+    }
 }

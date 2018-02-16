@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +30,15 @@ import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 public abstract class MonsterFragment extends Fragment {
 
+    interface MonsterClickedListener {
+        void onMonsterClicked(Monster monster);
+    }
+
+    MonsterClickedListener monsterClickedListener;
+
+
     RecyclerView recyclerView;
+
 
     DatabaseReference mReference;
 
@@ -86,6 +95,7 @@ public abstract class MonsterFragment extends Fragment {
 //                        onLikeClicked(postKey);
 //                    }
 //                });
+
                 viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
                     public boolean onLongClick(View view) {
@@ -113,6 +123,16 @@ public abstract class MonsterFragment extends Fragment {
                         return false;
                     }
                 });
+
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View view) {
+
+                        monsterClickedListener.onMonsterClicked(monster);
+
+
+                    }
+                });
             }
 
         };
@@ -122,6 +142,17 @@ public abstract class MonsterFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            monsterClickedListener = (MonsterClickedListener) context; // context==MainActivity
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + " must implement OnButtonClickListener");
+        }
+    }
+
 
     abstract Query setQuery();
 

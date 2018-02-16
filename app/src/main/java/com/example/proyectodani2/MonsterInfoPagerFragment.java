@@ -1,7 +1,5 @@
 package com.example.proyectodani2;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,12 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
-public class MonsterListPagerFragment extends Fragment {
+public class MonsterInfoPagerFragment extends Fragment {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-    public MonsterListPagerFragment() {
+    public MonsterInfoPagerFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +23,7 @@ public class MonsterListPagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_monster_list_pager, container, false);
+        View view =  inflater.inflate(R.layout.fragment_monster_info_pager, container, false);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getActivity().getSupportFragmentManager());
 
@@ -48,16 +45,19 @@ public class MonsterListPagerFragment extends Fragment {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0) {
-             } else if(position == 1) {
-                return new MonsterFavFragment();
+                return new MonsterDetailsFragment();
+            } else if(position == 1) {
+                return new MonsterPicsFragment();
+            } else if(position == 2) {
+                return new MonsterVideosFragment();
             }
-
-            return new MonstersAllFragment();
+            // este es el fragment por defecto del pager?
+            return new MonsterDetailsFragment();
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
     }
 }
