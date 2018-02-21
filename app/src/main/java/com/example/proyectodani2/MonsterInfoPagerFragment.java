@@ -27,7 +27,7 @@ public class MonsterInfoPagerFragment extends Fragment {
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getActivity().getSupportFragmentManager());
 
-        mViewPager = view.findViewById(R.id.container);
+        mViewPager = view.findViewById(R.id.MonsterInfoPagerContainer);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         return view;
@@ -45,7 +45,6 @@ public class MonsterInfoPagerFragment extends Fragment {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
             if(position == 0) {
-                return new MonsterDetailsFragment();
             } else if(position == 1) {
                 return new MonsterPicsFragment();
             } else if(position == 2) {

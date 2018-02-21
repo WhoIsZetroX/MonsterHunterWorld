@@ -30,7 +30,7 @@ public class MonsterListPagerFragment extends Fragment {
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getActivity().getSupportFragmentManager());
 
-        mViewPager = view.findViewById(R.id.container);
+        mViewPager = view.findViewById(R.id.MonsterListPagerContainer);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         return view;

@@ -120,11 +120,12 @@ public abstract class MonsterFragment extends Fragment {
                             }
                         });
 
-                        return false;
+                        return true;
                     }
                 });
 
-                viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+                viewHolder.itemView.setOnClickListener(
+                        new View.OnClickListener(){
                     @Override
                     public void onClick(View view) {
 
