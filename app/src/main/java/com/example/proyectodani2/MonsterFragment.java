@@ -1,6 +1,7 @@
 package com.example.proyectodani2;
 
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -29,7 +30,7 @@ import static com.firebase.ui.auth.AuthUI.getApplicationContext;
 
 
 public abstract class MonsterFragment extends Fragment {
-
+    String monsterKey;
     interface MonsterClickedListener {
         void onMonsterClicked(Monster monster);
     }
@@ -70,7 +71,7 @@ public abstract class MonsterFragment extends Fragment {
 
             @Override
             protected void onBindViewHolder(final MonsterViewHolder viewHolder, int position, final Monster monster) {
-               final String monsterKey = getRef(position).getKey();
+                monsterKey = getRef(position).getKey();
 
                 viewHolder.name.setText(monster.name);
 
@@ -129,8 +130,10 @@ public abstract class MonsterFragment extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        monsterClickedListener.onMonsterClicked(monster);
 
+                        monsterClickedListener.onMonsterClicked(monster);
+                        //TODO: pasar la key al otro fragment
+                        //monsterKey
 
                     }
                 });
