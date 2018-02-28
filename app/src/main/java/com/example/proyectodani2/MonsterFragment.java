@@ -47,6 +47,11 @@ public abstract class MonsterFragment extends Fragment {
     public MonsterFragment() {}
 
     @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -69,6 +74,8 @@ public abstract class MonsterFragment extends Fragment {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
                 return new MonsterViewHolder(inflater.inflate(R.layout.item_monster, viewGroup, false));
             }
+
+
 
             @Override
             protected void onBindViewHolder(final MonsterViewHolder viewHolder, final int position, final Monster monster) {
@@ -125,7 +132,6 @@ public abstract class MonsterFragment extends Fragment {
                         return true;
                     }
                 });
-
                 viewHolder.itemView.setOnClickListener(
                         new View.OnClickListener(){
                             @Override

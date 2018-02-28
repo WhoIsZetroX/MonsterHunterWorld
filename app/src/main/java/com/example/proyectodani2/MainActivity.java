@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity
     // Popup
     private LayoutInflater layoutInflater;
     private View popupView;
+
+
     private PopupWindow popupWindow;
 
     @Override
@@ -91,11 +94,11 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_monsters) {
             fragmentClass = MonsterListPagerFragment.class;
         } else if (id == R.id.nav_weapons) {
-            fragmentClass = WeaponsFragment.class;
+            Toast.makeText(MainActivity.this, "WIP!", Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_games) {
-
+            Toast.makeText(MainActivity.this, "WIP!", Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_music) {
-
+            Toast.makeText(MainActivity.this, "WIP!", Toast.LENGTH_LONG).show();
         }else if (id == R.id.nav_help) {
             abrirPopUp();
         }else if (id == R.id.nav_settings) {
