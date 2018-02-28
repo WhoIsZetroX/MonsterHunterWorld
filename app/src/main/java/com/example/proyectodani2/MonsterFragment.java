@@ -2,6 +2,7 @@ package com.example.proyectodani2;
 
 
 import android.app.FragmentTransaction;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -70,7 +71,7 @@ public abstract class MonsterFragment extends Fragment {
             }
 
             @Override
-            protected void onBindViewHolder(final MonsterViewHolder viewHolder, int position, final Monster monster) {
+            protected void onBindViewHolder(final MonsterViewHolder viewHolder, final int position, final Monster monster) {
                 monsterKey = getRef(position).getKey();
 
                 viewHolder.name.setText(monster.name);
@@ -127,16 +128,15 @@ public abstract class MonsterFragment extends Fragment {
 
                 viewHolder.itemView.setOnClickListener(
                         new View.OnClickListener(){
-                    @Override
-                    public void onClick(View view) {
+                            @Override
+                            public void onClick(View view) {
+                                monsterKey = getRef(position).getKey();
+                                MonsterViewModel monsterViewModel = ViewModelProviders.of(getActivity()).get(MonsterViewModel.class);
+                                monsterViewModel.getMonsterKey().setValue(monsterKey);
+                                monsterClickedListener.onMonsterClicked(monster);
 
-
-                        monsterClickedListener.onMonsterClicked(monster);
-                        //TODO: pasar la key al otro fragment
-                        //monsterKey
-
-                    }
-                });
+                            }
+                        });
             }
 
         };

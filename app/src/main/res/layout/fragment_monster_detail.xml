@@ -3,26 +3,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.proyectodani2.MonsterDetailsFragment">
-    <LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/test" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Nerugigante boi" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Es un erizo con pinchos que esta muy cabreado" />
+            <ImageView
+                android:id="@+id/imageMonster"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_weight="50"/>
 
-    </LinearLayout>
-</FrameLayout>
+            <TextView
+                android:id="@+id/monsterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text="Nerugigante"
+                android:textAppearance="@style/TextAppearance.AppCompat.Button"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/monsterDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="xd"
+                android:layout_weight="40"/>
+        </LinearLayout>
+    </ScrollView>
+    </FrameLayout>

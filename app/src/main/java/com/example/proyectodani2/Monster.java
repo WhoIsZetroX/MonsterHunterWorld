@@ -9,18 +9,54 @@ import com.google.firebase.database.IgnoreExtraProperties;
 @IgnoreExtraProperties
 public class Monster {
     String name;
-    int imageUrl;
+    String desc;
     String picUrl;
 
-    public Monster(){}
+    String mDetailPic;
+    //int imageUrl;
 
-    public Monster(/*String name,*/ int imageUrl) {
-        /*this.name = name;*/
-        this.imageUrl = imageUrl;
+
+
+    public Monster() {
+
     }
 
-    public Monster(String name, String picUrl){
+    public Monster(String name, String picUrl, String mDetailPic){
         this.name = name;
         this.picUrl = picUrl;
+        this.mDetailPic = mDetailPic;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {this.picUrl = picUrl;    }
+
+    public void setmDetailPic(String mDetailPic) {
+        this.mDetailPic = mDetailPic;
+    }
+
+    public String getmDetailPic() {
+
+        return mDetailPic;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.proyectodani2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -9,29 +10,39 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.PopupWindow;
+import android.widget.RadioGroup;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MonsterFragment.MonsterClickedListener {
+
+    // Popup
+    private LayoutInflater layoutInflater;
+    private View popupView;
+    private PopupWindow popupWindow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
-        DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView =(NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -85,6 +96,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_music) {
 
+        }else if (id == R.id.nav_help) {
+            abrirPopUp();
+        }else if (id == R.id.nav_settings) {
+            startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+            finish();
         }
 
         if(fragmentClass != null) {
@@ -109,4 +125,19 @@ public class MainActivity extends AppCompatActivity
 
         getSupportFragmentManager().beginTransaction().replace(R.id.flContent, new MonsterInfoPagerFragment()).commit();
     }
+
+    void abrirPopUp(){
+        layoutInflater =(LayoutInflater)getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+        popupView = layoutInflater.inflate(R.layout.popup, null);
+        popupWindow = new PopupWindow(popupView, RadioGroup.LayoutParams.WRAP_CONTENT,
+                RadioGroup.LayoutParams.WRAP_CONTENT);
+        popupView.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+        popupWindow.showAsDropDown(popupView, 100, 300, 1);
+    }
+
 }
