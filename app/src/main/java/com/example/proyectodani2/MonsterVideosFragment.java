@@ -50,9 +50,7 @@ public class MonsterVideosFragment extends Fragment {
         } else {
             System.out.println("NO BISIBLE");
 
-            if (videoView==null){
-                System.out.println("null");
-            }else{
+            if (videoView!=null){
                 videoView.pause();
                 videoView.setMediaController(null);
                 ((AppCompatActivity)getActivity()).getSupportActionBar().show();
