@@ -3,45 +3,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.proyectodani2.MonsterPicsFragment">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+     <android.support.v7.widget.RecyclerView
+         android:id="@+id/recyclerview"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent" />
 
-            <ImageView
-                android:id="@+id/n1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/n1" />
-            <ImageView
-                android:id="@+id/n2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/n2" />
-            <ImageView
-                android:id="@+id/n3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/n3" />
-            <ImageView
-                android:id="@+id/n4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/n4" />
-            <ImageView
-                android:id="@+id/n5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"
-                android:src="@drawable/n5" />
-        </LinearLayout>
-    </ScrollView>
+     <!--    <ScrollView
+
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+
+             <LinearLayout
+                 android:id="@+id/linearLayout"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="vertical">
+                    &lt;!&ndash; <android.support.v7.widget.RecyclerView
+                         android:id="@+id/recyclerview"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">&ndash;&gt;
+
+                             <ImageView
+                                 android:id="@+id/imageiv"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content" />
+
+             &lt;!&ndash;
+                     </android.support.v7.widget.RecyclerView>
+             &ndash;&gt;
+             </LinearLayout>
+         </ScrollView>-->
 </FrameLayout>
